@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="communitieswinModelStoreContainer" CdmEntityContainer="communitieswinEntities">
+    <EntitySetMapping Name="categories">
+      <EntityTypeMapping TypeName="communitieswinModel.category">
+        <MappingFragment StoreEntitySet="category">
+          <ScalarProperty Name="category_id" ColumnName="category_id" />
+          <ScalarProperty Name="category_name" ColumnName="category_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="products">
+      <EntityTypeMapping TypeName="communitieswinModel.product">
+        <MappingFragment StoreEntitySet="product">
+          <ScalarProperty Name="category_id" ColumnName="category_id" />
+          <ScalarProperty Name="product_id" ColumnName="product_id" />
+          <ScalarProperty Name="product_name" ColumnName="product_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vendor_category">
+      <EntityTypeMapping TypeName="communitieswinModel.vendor_category">
+        <MappingFragment StoreEntitySet="vendor_category">
+          <ScalarProperty Name="vendor_category_id" ColumnName="vendor_category_id" />
+          <ScalarProperty Name="category_id" ColumnName="category_id" />
+          <ScalarProperty Name="vendor_id" ColumnName="vendor_id" />
+          <ScalarProperty Name="is_active" ColumnName="is_active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vendor_details">
+      <EntityTypeMapping TypeName="communitieswinModel.vendor_details">
+        <MappingFragment StoreEntitySet="vendor_details">
+          <ScalarProperty Name="contactless_pay" ColumnName="contactless_pay" />
+          <ScalarProperty Name="vendor_id" ColumnName="vendor_id" />
+          <ScalarProperty Name="vendor_name" ColumnName="vendor_name" />
+          <ScalarProperty Name="country" ColumnName="country" />
+          <ScalarProperty Name="state" ColumnName="state" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="pin" ColumnName="pin" />
+          <ScalarProperty Name="latitude" ColumnName="latitude" />
+          <ScalarProperty Name="longitude" ColumnName="longitude" />
+          <ScalarProperty Name="is_social_distance" ColumnName="is_social_distance" />
+          <ScalarProperty Name="is_fever_screen" ColumnName="is_fever_screen" />
+          <ScalarProperty Name="is_sanitizer_used" ColumnName="is_sanitizer_used" />
+          <ScalarProperty Name="is_stamp_check" ColumnName="is_stamp_check" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vendor_product">
+      <EntityTypeMapping TypeName="communitieswinModel.vendor_product">
+        <MappingFragment StoreEntitySet="vendor_product">
+          <ScalarProperty Name="vendor_product_id" ColumnName="vendor_product_id" />
+          <ScalarProperty Name="vendor_id" ColumnName="vendor_id" />
+          <ScalarProperty Name="product_id" ColumnName="product_id" />
+          <ScalarProperty Name="min_order_quantity" ColumnName="min_order_quantity" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="Units" ColumnName="Units" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

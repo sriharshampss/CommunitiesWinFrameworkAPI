@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="communitieswinModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="category">
+    <Key>
+      <PropertyRef Name="category_id" />
+    </Key>
+    <Property Name="category_id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="category_name" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="product">
+    <Key>
+      <PropertyRef Name="product_id" />
+    </Key>
+    <Property Name="product_id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="product_name" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="category_id" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vendor_category">
+    <Key>
+      <PropertyRef Name="vendor_category_id" />
+    </Key>
+    <Property Name="vendor_category_id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="category_id" Type="bigint" Nullable="false" />
+    <Property Name="vendor_id" Type="bigint" Nullable="false" />
+    <Property Name="is_active" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vendor_details">
+    <Key>
+      <PropertyRef Name="vendor_id" />
+    </Key>
+    <Property Name="vendor_id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="vendor_name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="country" Type="nvarchar" MaxLength="100" />
+    <Property Name="state" Type="nvarchar" MaxLength="100" />
+    <Property Name="city" Type="nvarchar" MaxLength="100" />
+    <Property Name="phone" Type="bigint" Nullable="false" />
+    <Property Name="pin" Type="nvarchar" MaxLength="20" />
+    <Property Name="latitude" Type="decimal" Precision="12" Scale="9" />
+    <Property Name="longitude" Type="decimal" Precision="12" Scale="9" />
+    <Property Name="is_social_distance" Type="bit" />
+    <Property Name="is_fever_screen" Type="bit" />
+    <Property Name="is_sanitizer_used" Type="bit" />
+    <Property Name="is_stamp_check" Type="bit" />
+    <Property Name="contactless_pay" Type="bit" />
+  </EntityType>
+  <EntityType Name="vendor_product">
+    <Key>
+      <PropertyRef Name="vendor_product_id" />
+    </Key>
+    <Property Name="vendor_product_id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="vendor_id" Type="bigint" Nullable="false" />
+    <Property Name="product_id" Type="bigint" Nullable="false" />
+    <Property Name="min_order_quantity" Type="decimal" Precision="20" Scale="0" />
+    <Property Name="price" Type="decimal" Precision="20" Scale="2" />
+    <Property Name="Units" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityContainer Name="communitieswinModelStoreContainer">
+    <EntitySet Name="category" EntityType="Self.category" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="product" EntityType="Self.product" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="vendor_category" EntityType="Self.vendor_category" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="vendor_details" EntityType="Self.vendor_details" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="vendor_product" EntityType="Self.vendor_product" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

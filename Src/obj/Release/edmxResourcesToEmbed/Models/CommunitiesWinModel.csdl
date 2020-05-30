@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="communitieswinModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="category">
+    <Key>
+      <PropertyRef Name="category_id" />
+    </Key>
+    <Property Name="category_id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="category_name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="product">
+    <Key>
+      <PropertyRef Name="product_id" />
+    </Key>
+    <Property Name="product_id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="product_name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="category_id" Type="Int64" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vendor_category">
+    <Key>
+      <PropertyRef Name="vendor_category_id" />
+    </Key>
+    <Property Name="vendor_category_id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="category_id" Type="Int64" Nullable="false" />
+    <Property Name="vendor_id" Type="Int64" Nullable="false" />
+    <Property Name="is_active" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vendor_details">
+    <Key>
+      <PropertyRef Name="vendor_id" />
+    </Key>
+    <Property Name="vendor_id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="vendor_name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="country" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="state" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="city" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="phone" Type="Int64" Nullable="false" />
+    <Property Name="pin" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="latitude" Type="Decimal" Precision="12" Scale="9" />
+    <Property Name="longitude" Type="Decimal" Precision="12" Scale="9" />
+    <Property Name="is_social_distance" Type="Boolean" />
+    <Property Name="is_fever_screen" Type="Boolean" />
+    <Property Name="is_sanitizer_used" Type="Boolean" />
+    <Property Name="is_stamp_check" Type="Boolean" />
+    <Property Name="contactless_pay" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="vendor_product">
+    <Key>
+      <PropertyRef Name="vendor_product_id" />
+    </Key>
+    <Property Name="vendor_product_id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="vendor_id" Type="Int64" Nullable="false" />
+    <Property Name="product_id" Type="Int64" Nullable="false" />
+    <Property Name="min_order_quantity" Type="Decimal" Precision="20" Scale="0" />
+    <Property Name="price" Type="Decimal" Precision="20" Scale="2" />
+    <Property Name="Units" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityContainer Name="communitieswinEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="categories" EntityType="Self.category" />
+    <EntitySet Name="products" EntityType="Self.product" />
+    <EntitySet Name="vendor_category" EntityType="Self.vendor_category" />
+    <EntitySet Name="vendor_details" EntityType="Self.vendor_details" />
+    <EntitySet Name="vendor_product" EntityType="Self.vendor_product" />
+  </EntityContainer>
+</Schema>
