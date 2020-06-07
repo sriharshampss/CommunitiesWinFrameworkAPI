@@ -27,13 +27,13 @@ namespace CommunitiesWinFrameworkAPI.Controllers
         /// <returns></returns>
         [AcceptVerbs("GET")]
         [System.Web.Mvc.ActionName("GetVendor")]
-        public IHttpActionResult GetVendor([FromBody]VendorDetail vendorDetailItem)
+        public IHttpActionResult GetVendor(long phoneNumber)
         {
             
-            var vendorDetail = communitieswinEntities.vendor_details.FirstOrDefault(x => x.phone == vendorDetailItem.Phone);
+            var vendorDetail = communitieswinEntities.vendor_details.FirstOrDefault(x => x.phone == phoneNumber);
             if (vendorDetail == null)
             {
-                return BadRequest("Couldn't find a vendor profile with phone number: " + vendorDetailItem.Phone);
+                return BadRequest("Couldn't find a vendor profile with phone number: " + phoneNumber);
             }
             var categories = communitieswinEntities.categories.ToList();
             Dictionary<long, string> categoriesDict = new Dictionary<long, string>();
@@ -109,7 +109,7 @@ namespace CommunitiesWinFrameworkAPI.Controllers
             var existingVendorDetail = communitieswinEntities.vendor_details.FirstOrDefault(x => x.phone == vendorDetails.Phone);
             if (existingVendorDetail == null)
             {
-                communitieswinEntities.vendor_details.Add(new vendor_details
+                existingVendorDetail = new vendor_details
                 {
                     phone = vendorDetails.Phone,
                     vendor_name = vendorDetails.VendorName,
@@ -119,7 +119,8 @@ namespace CommunitiesWinFrameworkAPI.Controllers
                     pin = vendorDetails.Pin,
                     latitude = vendorDetails.Latitude,
                     longitude = vendorDetails.Longitude
-                });
+                };
+                communitieswinEntities.vendor_details.Add(existingVendorDetail);
             }
             else
             {
@@ -132,6 +133,24 @@ namespace CommunitiesWinFrameworkAPI.Controllers
                 existingVendorDetail.country = vendorDetails.Country;
             }
             communitieswinEntities.SaveChanges();
+            if (!string.IsNullOrEmpty(vendorDetails.Categories))
+            {
+                var categories = vendorDetails.Categories.Split(',');
+                foreach (var category in categories)
+                {
+                    long categoryId = SaveCategory(category.Trim());
+                    var vendorCategory = communitieswinEntities.vendor_category.FirstOrDefault(x => x.vendor_id == existingVendorDetail.vendor_id && x.category_id == categoryId);
+                    if (vendorCategory == null)
+                    {
+                        communitieswinEntities.vendor_category.Add(new vendor_category()
+                        {
+                            vendor_id = existingVendorDetail.vendor_id,
+                            category_id = categoryId,
+                            is_active = true
+                        });
+                    }
+                }
+            }            
             return Ok();
         }
 

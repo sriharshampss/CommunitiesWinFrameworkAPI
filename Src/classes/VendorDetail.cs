@@ -21,6 +21,8 @@ namespace CommunitiesWinApi.Models
         [DataMember]
         public decimal? Latitude { get; set; }
         [DataMember]
-        public decimal? Longitude { get; set; }       
+        public decimal? Longitude { get; set; }
+        [DataMember]
+        public string Categories { get; set; }
     }
 }

@@ -80,10 +80,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/10/2013 16:29:20</publishTime>
     </File>
     <File Include="bin/CommunitiesWinFrameworkAPI.dll">
-      <publishTime>05/30/2020 00:08:44</publishTime>
+      <publishTime>06/07/2020 00:59:53</publishTime>
     </File>
     <File Include="bin/CommunitiesWinFrameworkAPI.pdb">
-      <publishTime>05/30/2020 00:08:44</publishTime>
+      <publishTime>06/07/2020 00:59:53</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>04/16/2020 20:38:42</publishTime>
@@ -359,7 +359,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/15/2020 22:55:52</publishTime>
     </File>
     <File Include="SqlScript/table_setup.sql">
-      <publishTime>05/29/2020 23:12:51</publishTime>
+      <publishTime>06/07/2020 00:57:34</publishTime>
     </File>
     <File Include="Views/Shared/Error.cshtml">
       <publishTime>05/15/2020 22:55:47</publishTime>
@@ -374,7 +374,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/15/2020 22:55:47</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>05/25/2020 01:48:38</publishTime>
+      <publishTime>06/07/2020 01:00:21</publishTime>
     </File>
   </ItemGroup>
 </Project>
