@@ -321,7 +321,7 @@ namespace CommunitiesWinFrameworkAPI.Controllers
                 {
                     ProductName = item.product_name,
                     Category = categoriesDict[item.category_id],
-                    ImageUrl = ""
+                    ImageUrl = item.image_path ?? ""
                 });
             }
             return Json(productsData);

@@ -14,6 +14,7 @@
     <Property Name="product_id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="product_name" Type="nvarchar" MaxLength="500" Nullable="false" />
     <Property Name="category_id" Type="bigint" Nullable="false" />
+    <Property Name="image_path" Type="nvarchar" MaxLength="100" />
   </EntityType>
   <EntityType Name="vendor_category">
     <Key>

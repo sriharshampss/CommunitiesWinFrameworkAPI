@@ -17,5 +17,6 @@ namespace CommunitiesWinFrameworkAPI.Models
         public long product_id { get; set; }
         public string product_name { get; set; }
         public long category_id { get; set; }
+        public string image_path { get; set; }
     }
 }

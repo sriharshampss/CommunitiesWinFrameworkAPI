@@ -11,7 +11,7 @@ CREATE TABLE vendor_details (
   is_social_distance BIT DEFAULT 0,
   is_fever_screen BIT DEFAULT 0,
   is_sanitizer_used BIT DEFAULT 0,
-  is_stamp_check INT DEFAULT 0,
+  is_stamp_check BIT DEFAULT 0,
 );
 GO
 CREATE TABLE category (
@@ -26,6 +26,7 @@ CREATE TABLE product (
   product_id BIGINT NOT NULL PRIMARY KEY IDENTITY(1,1),
   product_name NVARCHAR(500) NOT NULL,
   category_id [bigint] NOT NULL,
+  image_path NVARCHAR(100) NULL
 );
 GO
 CREATE TABLE vendor_category (
@@ -49,37 +50,37 @@ Units NVARCHAR(20) NULL,
 );
 GO
 INSERT INTO product
-VALUES ('Apple', 1),
-('Mango', 1),
-('Grapes Green Round', 1),
-('Banana', 1),
-('Santra', 1),
-('Peru', 1),
-('Anaar', 1),
-('KairiKacchi', 1),
-('Mossambi', 1),
-('Chikoo', 1),
-('Sitafal', 1),
-('Papaya', 1),
-('Fanas', 1),
-('Pineapple', 1),
-('Water Melon', 1),
-('Lychee', 1),
-('Strawberry', 1),
-('Aamla',1),
-('Plum', 1),
-('Peach',1),
-('Anjir', 1),
-('Kiwi', 1),
-('Grapes Green Long', 1),
-('Grapes Purple Round', 1),
-('Melon Kharbuj', 1),
-('Tomato', 2),
-('Lemon', 2),
-('Peas', 2),
-('Doodhi', 1),
-('Karela', 2),
-('Turai', 2)
+VALUES ('Apple', 1, 'http://vendor.comwin.in/content/images/Apple.png'),
+('Mango', 1, 'http://vendor.comwin.in/content/images/Mango.png'),
+('Grapes Green Round', 1, 'http://vendor.comwin.in/content/images/Grapes_Green_Round.png'),
+('Banana', 1, 'http://vendor.comwin.in/content/images/Banana.png'),
+('Santra', 1, 'http://vendor.comwin.in/content/images/Santra.png'),
+('Peru', 1, 'http://vendor.comwin.in/content/images/Peru.png'),
+('Anaar', 1, 'http://vendor.comwin.in/content/images/Anaar.png'),
+('KairiKacchi', 1, ''),
+('Mossambi', 1, ''),
+('Chikoo', 1, ''),
+('Sitafal', 1, ''),
+('Papaya', 1, ''),
+('Fanas', 1, ''),
+('Pineapple', 1, ''),
+('Water Melon', 1, ''),
+('Lychee', 1, ''),
+('Strawberry', 1, ''),
+('Aamla',1, ''),
+('Plum', 1, ''),
+('Peach',1, ''),
+('Anjir', 1, ''),
+('Kiwi', 1, ''),
+('Grapes Green Long', 1, ''),
+('Grapes Purple Round', 1, ''),
+('Melon Kharbuj', 1, ''),
+('Tomato', 2, ''),
+('Lemon', 2, ''),
+('Peas', 2, ''),
+('Doodhi', 1, ''),
+('Karela', 2, ''),
+('Turai', 2, '')
 GO
 
 ALTER TABLE [communitieswin].[dbo].[vendor_details]

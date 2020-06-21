@@ -12,6 +12,7 @@
     <EntitySetMapping Name="products">
       <EntityTypeMapping TypeName="communitieswinModel.product">
         <MappingFragment StoreEntitySet="product">
+          <ScalarProperty Name="image_path" ColumnName="image_path" />
           <ScalarProperty Name="category_id" ColumnName="category_id" />
           <ScalarProperty Name="product_id" ColumnName="product_id" />
           <ScalarProperty Name="product_name" ColumnName="product_name" />
